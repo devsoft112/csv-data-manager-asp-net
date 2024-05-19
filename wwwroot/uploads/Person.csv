@@ -1,0 +1,11 @@
+Identity,FirstName,Surname,Age,Sex,Mobile,Active
+1,Joe,Van Tonder,34,M,725329854,TRUE
+2,Pieter,Nel,25,M,824981596,FALSE
+3,Gerhard,Pretorious,M,28,82123456,TRUE
+4,Draven,Wolf,33,,M,FALSE
+5,Suzanne,Smith,33,F,,TRUE
+6,Cornelius,Van der Merwe,19,M,829876543,TRUE
+7,Tebogo,Gumede,21,M,,TRUE
+8,Andrew,Caruthers,45,M,7212345679,Yes
+9,Janine,Erasmus,49,F,,TRUE
+10,Patience,Ndlovu,60,F,745551234,TRUE

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Users</h1>
+<a asp-action="Create" class="btn btn-success">Add New User</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Mobile</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Firstname</td>
+                <td>@user.Surname</td>
+                <td>@user.Age</td>
+                <td>@user.Sex</td>
+                <td>@user.Mobile</td>
+                <td>@user.Active</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
