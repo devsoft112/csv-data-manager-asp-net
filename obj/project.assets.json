@@ -8363,11 +8363,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AAA\\homeTask\\CSVDataManager\\CSVDataManager.csproj",
+      "projectUniqueName": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\CSVDataManager.csproj",
       "projectName": "CSVDataManager",
-      "projectPath": "D:\\AAA\\homeTask\\CSVDataManager\\CSVDataManager.csproj",
+      "projectPath": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\CSVDataManager.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\AAA\\homeTask\\CSVDataManager\\obj\\",
+      "outputPath": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",

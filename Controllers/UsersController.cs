@@ -5,6 +5,7 @@ using CSVDataManager.Models;
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
+using System.ComponentModel.DataAnnotations;
 
 namespace CSVDataManager.Controllers
 {
@@ -25,8 +26,68 @@ namespace CSVDataManager.Controllers
             return View(await _context.Users.ToListAsync());
         }
 
-
         private async Task ProcessCsvFile(string filePath)
+        {
+            var validUsers = new List<User>();
+
+            try
+            {
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    BadDataFound = context =>
+                    {
+                        _logger.LogInformation($"Bad data found on row {context.Context.Parser.Row}: {context.RawRecord}");
+                    },
+                    HeaderValidated = null,  // Ignore header validation issues
+                    MissingFieldFound = null,  // Ignore missing fields
+                    ReadingExceptionOccurred = exception =>
+                    {
+                        _logger.LogInformation($"Reading exception occurred: {exception.Exception.Message}");
+                        return false; // return true if you want to ignore the error and continue processing.
+                    }
+                }))
+                {
+                    var records = csv.GetRecords<User>();
+
+                    foreach (var record in records)
+                    {
+                        // Validate each record manually
+                        var validationResults = new List<ValidationResult>();
+                        var validationContext = new ValidationContext(record);
+
+                        if (Validator.TryValidateObject(record, validationContext, validationResults, true))
+                        {
+                            validUsers.Add(record);
+                        }
+                        else
+                        {
+                            foreach (var error in validationResults)
+                            {
+                                _logger.LogWarning($"Validation error on row {csv.Context.Parser.Row}: {error.ErrorMessage}");
+                            }
+                        }
+                    }
+
+                    foreach (var user in validUsers)
+                    {
+                        Console.WriteLine(user.Firstname + "\t" + user.Surname + "\t" + user.Age + "\t" + user.Sex + "\t" + user.Mobile + "\t" + user.Active);
+                    }
+
+                    if (validUsers.Count > 0)
+                    {
+                        await _context.Users.AddRangeAsync(validUsers);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to process CSV file: {Message}", ex.Message);
+            }
+        }
+
+        /*private async Task ProcessCsvFile(string filePath)
         {
             try
             {
@@ -54,7 +115,7 @@ namespace CSVDataManager.Controllers
                 // Log the error and handle it, e.g., return a view with an error message
                 _logger.LogError("Failed to process CSV file: {Message}", ex.Message);
             }
-        }
+        }*/
 
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file)

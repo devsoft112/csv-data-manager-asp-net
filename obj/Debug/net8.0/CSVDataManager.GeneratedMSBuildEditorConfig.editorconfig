@@ -17,55 +17,55 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CSVDataManager
 build_property.RootNamespace = CSVDataManager
-build_property.ProjectDir = D:\AAA\homeTask\CSVDataManager\
+build_property.ProjectDir = D:\AAA\homeTask\csv-data-manager-asp-net\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\AAA\homeTask\CSVDataManager
+build_property.MSBuildProjectDirectory = D:\AAA\homeTask\csv-data-manager-asp-net
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Home/Index.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Home/Privacy.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Shared/Error.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Users/Create.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Users/Delete.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Users/Edit.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Users/Index.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/_ViewImports.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/_ViewStart.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/AAA/homeTask/CSVDataManager/Views/Shared/_Layout.cshtml]
+[D:/AAA/homeTask/csv-data-manager-asp-net/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-w6ws47ozid

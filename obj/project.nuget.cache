@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fNnWjyLLWGFA/ZeYEt7bcvguTPDRa/eW1fFHbcMRbFSJoAGuJQMV7XENSif44mr1JFo6aG9lnopmqw508i7log==",
+  "dgSpecHash": "ON3e6HoALNKhiLZQ5ToK98cT8ZjXYar+tarqOs1QNjBLD+VTI4UWuzEqAjNFFJEzQQP2aL2y6m7E8ihwDl1dfg==",
   "success": true,
-  "projectFilePath": "D:\\AAA\\homeTask\\CSVDataManager\\CSVDataManager.csproj",
+  "projectFilePath": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\CSVDataManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

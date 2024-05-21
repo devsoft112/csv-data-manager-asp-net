@@ -5,7 +5,7 @@
 namespace CSVDataManager.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdatePrimaryKey : Migration
+    public partial class CreateUsersTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,9 +17,9 @@ namespace CSVDataManager.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surename = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: true),
-                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Mobile = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false)
                 },
