@@ -21,8 +21,6 @@ namespace CSVDataManager.Models
         public int Age { get; set; } // Age as integer
 
         [Name("Sex")]
-        [Required]
-        [RegularExpression("^[MF]$", ErrorMessage = "Sex must be 'M' or 'F'")]
         public string Sex { get; set; } // Sex must be 'M' or 'F'
 
         [Name("Mobile")]

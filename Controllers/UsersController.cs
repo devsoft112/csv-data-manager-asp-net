@@ -6,6 +6,8 @@ using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using CSVDataManager.ViewModels;
 
 namespace CSVDataManager.Controllers
 {
@@ -87,36 +89,6 @@ namespace CSVDataManager.Controllers
             }
         }
 
-        /*private async Task ProcessCsvFile(string filePath)
-        {
-            try
-            {
-                using (var reader = new StreamReader(filePath))
-                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
-                {
-                    BadDataFound = context =>
-                    {
-                        Console.WriteLine($"Bad data found on row {context.Context.Parser.Row}: {context.RawRecord}");
-                    },
-                    ReadingExceptionOccurred = exception =>
-                    {
-                        Console.WriteLine($"Reading exception occurred: {exception.Exception.Message}");
-                        return false; // return true if you want to ignore the error and continue processing.
-                    }
-                }))
-                {
-                    var records = csv.GetRecords<User>();
-                    await _context.Users.AddRangeAsync(records);
-                    await _context.SaveChangesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error and handle it, e.g., return a view with an error message
-                _logger.LogError("Failed to process CSV file: {Message}", ex.Message);
-            }
-        }*/
-
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
@@ -143,22 +115,58 @@ namespace CSVDataManager.Controllers
         // Display the form to create a new user (Create)
         public IActionResult Create()
         {
-            return View();
+            var model = new UserViewModel
+            {
+                SexOptions = new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Male", Value = "M" },
+                    new SelectListItem { Text = "Female", Value = "F" }
+                }
+            };
+            return View(model);
         }
 
         // POST: Create a new user
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Firstname, Surname, Age, Sex, Mobile, Active")] User user)
+        public async Task<IActionResult> Create(UserViewModel model)
         {
-            if (ModelState.IsValid) {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+            ModelState.Remove("SexOptions");
+            if (!ModelState.IsValid)
+            {
+                foreach (var entry in ModelState)
+                {
+                    if (entry.Value.Errors.Count > 0)
+                    {
+                        _logger.LogError($"Validation errors for {entry.Key}:");
+                        foreach (var error in entry.Value.Errors)
+                        {
+                            _logger.LogError(error.ErrorMessage);
+                        }
+                    }
+                }
+
+                // Reinitialize the SexOptions to ensure they're available for the view on return
+                model.SexOptions = GetSexOptions();
+                return View(model);
             }
 
-            return View(user);
+            // If model state is valid, proceed to map to database entity and save
+            var user = new User
+            {
+                Firstname = model.Firstname,
+                Surname = model.Surname,
+                Age = model.Age,
+                Sex = model.Sex,
+                Mobile = model.Mobile,
+                Active = model.Active
+            };
+
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
+
 
         // Display the form to edit a user (Update)
         public async Task<IActionResult> Edit(int? id)
@@ -174,21 +182,47 @@ namespace CSVDataManager.Controllers
                 return NotFound();
             }
 
-            return View(user);
+            var model = new UserViewModel
+            {
+                Id = user.Id,
+                Firstname = user.Firstname,
+                Surname = user.Surname,
+                Age = user.Age,
+                Sex = user.Sex,
+                Mobile = user.Mobile,
+                Active = user.Active,
+                SexOptions = GetSexOptions() // Make sure this method is available and properly populating the SelectList
+            };
+
+            return View(model);
         }
 
         // POST: Update a user
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, Firstname, Surname, Age, Sex, Mobile, Active")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Firstname, Surname, Age, Sex, Mobile, Active")] UserViewModel model)
         {
-            if (id != user.Id)
+            if (id != model.Id)
             {
                 return NotFound();
             }
+            ModelState.Remove("SexOptions");
 
             if (ModelState.IsValid)
             {
+                var user = await _context.Users.FindAsync(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                user.Firstname = model.Firstname;
+                user.Surname = model.Surname;
+                user.Age = model.Age;
+                user.Sex = model.Sex;
+                user.Mobile = model.Mobile;
+                user.Active = model.Active;
+
                 try
                 {
                     _context.Update(user);
@@ -198,7 +232,7 @@ namespace CSVDataManager.Controllers
                 {
                     if (!UserExists(user.Id))
                     {
-                        return NotFound(user);
+                        return NotFound();
                     }
                     else
                     {
@@ -207,7 +241,9 @@ namespace CSVDataManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+
+            model.SexOptions = GetSexOptions(); // Reinitialize on validation failure
+            return View(model);
         }
 
         // Display the confirmation page for deleting a user (Delete)
@@ -242,6 +278,15 @@ namespace CSVDataManager.Controllers
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.Id == id);
+        }
+
+        private IEnumerable<SelectListItem> GetSexOptions()
+        {
+            return new List<SelectListItem>
+            {
+                new SelectListItem { Value = "M", Text = "Male" },
+                new SelectListItem { Value = "F", Text = "Female" }
+            };
         }
     }
 }

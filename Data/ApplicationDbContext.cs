@@ -1,4 +1,5 @@
 ﻿using CSVDataManager.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSVDataManager.Data
@@ -17,6 +18,7 @@ namespace CSVDataManager.Data
             modelBuilder.Entity<User>()
                 .Property(u => u.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<SelectListGroup>().HasNoKey();
         }
     }
 }
