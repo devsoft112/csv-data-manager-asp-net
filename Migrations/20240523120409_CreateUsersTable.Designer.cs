@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSVDataManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240521100333_CreateUsersTable")]
+    [Migration("20240523120409_CreateUsersTable")]
     partial class CreateUsersTable
     {
         /// <inheritdoc />
@@ -57,6 +57,17 @@ namespace CSVDataManager.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Mvc.Rendering.SelectListGroup", b =>
+                {
+                    b.Property<bool>("Disabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("SelectListGroup");
                 });
 #pragma warning restore 612, 618
         }

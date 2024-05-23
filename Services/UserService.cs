@@ -53,6 +53,7 @@ namespace CSVDataManager.Services
             return _userRepository.UserExists(id);
         }
 
+        // Process CSV file and add valid users to the database
         public async Task ProcessCsvFileAsync(string filePath)
         {
             var validUsers = new List<User>();
@@ -62,12 +63,14 @@ namespace CSVDataManager.Services
                 using (var reader = new StreamReader(filePath))
                 using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
+                    // Log bad data found in the CSV
                     BadDataFound = context =>
                     {
                         _logger.LogInformation($"Bad data found on row {context.Context.Parser.Row}: {context.RawRecord}");
                     },
                     HeaderValidated = null,  // Ignore header validation issues
                     MissingFieldFound = null,  // Ignore missing fields
+                    // Handle exceptions that occur during reading
                     ReadingExceptionOccurred = exception =>
                     {
                         _logger.LogInformation($"Reading exception occurred: {exception.Exception.Message}");
@@ -89,6 +92,7 @@ namespace CSVDataManager.Services
                         }
                         else
                         {
+                            // Log validation errors
                             foreach (var error in validationResults)
                             {
                                 _logger.LogWarning($"Validation error on row {csv.Context.Parser.Row}: {error.ErrorMessage}");
@@ -96,6 +100,7 @@ namespace CSVDataManager.Services
                         }
                     }
 
+                    // Add valid users to the repository
                     if (validUsers.Count > 0)
                     {
                         foreach (var user in validUsers)
@@ -107,6 +112,7 @@ namespace CSVDataManager.Services
             }
             catch (Exception ex)
             {
+                // Log any errors that occur during the process
                 _logger.LogError("Failed to process CSV file: {Message}", ex.Message);
             }
         }

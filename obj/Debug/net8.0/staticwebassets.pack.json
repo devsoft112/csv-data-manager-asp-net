@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\wwwroot\\images\\empty-folder.jpg",
+      "PackagePath": "staticwebassets\\images\\empty-folder.jpg"
+    },
+    {
       "Id": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

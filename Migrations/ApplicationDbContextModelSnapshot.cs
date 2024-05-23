@@ -55,6 +55,17 @@ namespace CSVDataManager.Migrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Mvc.Rendering.SelectListGroup", b =>
+                {
+                    b.Property<bool>("Disabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("SelectListGroup");
+                });
 #pragma warning restore 612, 618
         }
     }
