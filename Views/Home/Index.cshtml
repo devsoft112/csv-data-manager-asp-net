@@ -2,14 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">CSV Data Manager</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building CSV Data Manager with ASP.NET Core</a>.</p>
-    <form method="post" enctype="multipart/form-data" asp-controller="Users" asp-action="UploadFile">
-        <div class="form-group">
-            <label for="file">Upload CSV File:</label>
-            <input type="file" name="file" required />
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">CSV Data Manager</h1>
+        <div class="mt-4">
+            <div id="alertContainer"></div>
+            <form method="post" enctype="multipart/form-data" asp-controller="Users" asp-action="UploadFile" id="uploadForm">
+                <div class="mb-3">
+                    <div class="drop-zone" id="dropZone">
+                        <p>Click to select a file or drop a CSV file here</p>
+                        <input type="file" name="file" id="fileInput" class="form-control" style="display: none;" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="uploadButton">Upload</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
+    </div>
 </div>
