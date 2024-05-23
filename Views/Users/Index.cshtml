@@ -1,4 +1,8 @@
-﻿@{
+﻿@model X.PagedList.IPagedList<CSVDataManager.Models.User>
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -38,6 +42,27 @@
             </tbody>
         </table>
     </div>
+    <div class="d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToIndividualPages = true,
+            DisplayPageCountAndCurrentLocation = false,
+            DisplayEllipsesWhenNotShowingAllPageNumbers = true,
+            MaximumPageNumbersToDisplay = 5,
+            LinkToFirstPageFormat = "First",
+            LinkToPreviousPageFormat = "Prev",
+            LinkToNextPageFormat = "Next",
+            LinkToLastPageFormat = "Last",
+            ContainerDivClasses = new[] { "pagination" },
+            UlElementClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" }
+        })
+    </div>
 </div>
 
 <style>
@@ -54,7 +79,40 @@
         margin-right: 5px;
     }
 
-        .btn:last-child {
-            margin-right: 0;
-        }
+    .btn:last-child {
+        margin-right: 0;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-item {
+        margin: 0 2px;
+    }
+
+    .page-link {
+        color: #007bff;
+        border: 1px solid #dee2e6;
+    }
+
+    .page-link:hover {
+        color: #0056b3;
+        text-decoration: none;
+        background-color: #e9ecef;
+    }
+
+    .page-item.active .page-link {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .page-item.disabled .page-link {
+        color: #6c757d;
+        pointer-events: none;
+        background-color: #fff;
+        border-color: #dee2e6;
+    }
 </style>

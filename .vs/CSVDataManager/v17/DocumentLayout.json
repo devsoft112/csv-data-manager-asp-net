@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,16 +19,20 @@
       "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|solutionrelative:views\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F031D48-3C2C-46D6-9A03-621D1CBC11A4}|CSVDataManager.csproj|d:\\aaa\\hometask\\csv-data-manager-asp-net\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -42,8 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAIAwwIMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T03:45:51.747Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -52,14 +69,14 @@
               "RelativeDocumentMoniker": "Views\\Users\\Edit.cshtml",
               "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Users\\Edit.cshtml",
               "RelativeToolTip": "Views\\Users\\Edit.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-23T03:11:16.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Users\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\Users\\Delete.cshtml",
@@ -72,33 +89,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Users\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Users\\Index.cshtml",
               "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Users\\Index.cshtml",
               "RelativeToolTip": "Views\\Users\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAcwGwAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-23T03:04:23.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAUwBwAAAAdAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-23T02:49:55.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "site.css",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -111,13 +128,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "site.js",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
               "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\wwwroot\\js\\site.js",
               "RelativeToolTip": "wwwroot\\js\\site.js",
-              "ViewState": "AQIAACcAAAAAAAAAAAAswD4AAAADAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAA3wEEAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-05-23T02:10:12.944Z",
               "EditorCaption": ""
@@ -130,14 +147,14 @@
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAwwBwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-23T02:09:45.672Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\AAA\\homeTask\\csv-data-manager-asp-net\\Views\\Users\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Users\\Create.cshtml",

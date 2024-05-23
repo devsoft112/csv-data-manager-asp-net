@@ -8,6 +8,7 @@ using CsvHelper.Configuration;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CSVDataManager.ViewModels;
+using X.PagedList;
 
 namespace CSVDataManager.Controllers
 {
@@ -23,9 +24,14 @@ namespace CSVDataManager.Controllers
         }
 
         // Display all users (Read all)
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            return View(await _context.Users.ToListAsync());
+            int pageSize = 10; // Number of items per page
+            int pageNumber = (page ?? 1);
+
+            var users = await _context.Users.ToPagedListAsync(pageNumber, pageSize);
+
+            return View(users);
         }
 
         private async Task ProcessCsvFile(string filePath)

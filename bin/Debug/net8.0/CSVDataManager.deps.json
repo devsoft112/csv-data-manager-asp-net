@@ -13,7 +13,8 @@
           "Microsoft.EntityFrameworkCore": "8.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.5",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
+          "X.PagedList.Mvc.Core": "9.1.2"
         },
         "runtime": {
           "CSVDataManager.dll": {}
@@ -1963,6 +1964,25 @@
             "fileVersion": "7.0.22.51805"
           }
         }
+      },
+      "X.PagedList/9.1.2": {
+        "runtime": {
+          "lib/net8.0/X.PagedList.dll": {
+            "assemblyVersion": "9.1.2.0",
+            "fileVersion": "9.1.2.0"
+          }
+        }
+      },
+      "X.PagedList.Mvc.Core/9.1.2": {
+        "dependencies": {
+          "X.PagedList": "9.1.2"
+        },
+        "runtime": {
+          "lib/net8.0/X.PagedList.Mvc.Core.dll": {
+            "assemblyVersion": "9.1.2.0",
+            "fileVersion": "9.1.2.0"
+          }
+        }
       }
     }
   },
@@ -3147,6 +3167,20 @@
       "sha512": "sha512-bR4qdCmssMMbo9Fatci49An5B1UaVJZHKNq70PRgzoLYIlitb8Tj7ns/Xt5Pz1CkERiTjcVBDU2y1AVrPBYkaw==",
       "path": "system.windows.extensions/7.0.0",
       "hashPath": "system.windows.extensions.7.0.0.nupkg.sha512"
+    },
+    "X.PagedList/9.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qePK/lt+Y8PeQM9E/DkWY/AIyxDVEMX0XFCU5CfLP1+Y9SUThFyaY8/QgldOg9uOJLvse1i3oAQDJOrhb3usdw==",
+      "path": "x.pagedlist/9.1.2",
+      "hashPath": "x.pagedlist.9.1.2.nupkg.sha512"
+    },
+    "X.PagedList.Mvc.Core/9.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+g8fJgXXVhl17BzVv8bGAkWooul23REeGNIJ4jUlA1Iqbw8Yq0OFMx/mGvjjEhIBNwDrjdhJKXGt7N7jejZWcQ==",
+      "path": "x.pagedlist.mvc.core/9.1.2",
+      "hashPath": "x.pagedlist.mvc.core.9.1.2.nupkg.sha512"
     }
   }
 }

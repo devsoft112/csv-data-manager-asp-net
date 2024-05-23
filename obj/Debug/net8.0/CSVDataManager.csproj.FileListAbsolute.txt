@@ -551,3 +551,6 @@ D:\AAA\homeTask\csv-data-manager-asp-net\obj\Debug\net8.0\refint\CSVDataManager.
 D:\AAA\homeTask\csv-data-manager-asp-net\obj\Debug\net8.0\CSVDataManager.pdb
 D:\AAA\homeTask\csv-data-manager-asp-net\obj\Debug\net8.0\CSVDataManager.genruntimeconfig.cache
 D:\AAA\homeTask\csv-data-manager-asp-net\obj\Debug\net8.0\ref\CSVDataManager.dll
+D:\AAA\homeTask\csv-data-manager-asp-net\bin\Debug\net8.0\X.PagedList.dll
+D:\AAA\homeTask\csv-data-manager-asp-net\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+D:\AAA\homeTask\csv-data-manager-asp-net\obj\Debug\net8.0\CSVDataManager.MvcApplicationPartsAssemblyInfo.cs
