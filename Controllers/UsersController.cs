@@ -1,26 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CSVDataManager.Data;
 using CSVDataManager.Models;
-using System.Globalization;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.ComponentModel.DataAnnotations;
+using CSVDataManager.Services;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CSVDataManager.ViewModels;
-using X.PagedList;
+using System.Threading.Tasks;
 
 namespace CSVDataManager.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context;
+        private readonly IUserService _userService;
+        private readonly ILogger<UsersController> _logger;
 
-        public UsersController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public UsersController(IUserService userService, ILogger<UsersController> logger)
         {
+            _userService = userService;
             _logger = logger;
-            _context = context;
         }
 
         // Display all users (Read all)
@@ -29,70 +25,9 @@ namespace CSVDataManager.Controllers
             int pageSize = 10; // Number of items per page
             int pageNumber = (page ?? 1);
 
-            var users = await _context.Users.ToPagedListAsync(pageNumber, pageSize);
+            var users = await _userService.GetUsersAsync(pageNumber, pageSize);
 
             return View(users);
-        }
-
-        private async Task ProcessCsvFile(string filePath)
-        {
-            var validUsers = new List<User>();
-
-            try
-            {
-                using (var reader = new StreamReader(filePath))
-                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
-                {
-                    BadDataFound = context =>
-                    {
-                        _logger.LogInformation($"Bad data found on row {context.Context.Parser.Row}: {context.RawRecord}");
-                    },
-                    HeaderValidated = null,  // Ignore header validation issues
-                    MissingFieldFound = null,  // Ignore missing fields
-                    ReadingExceptionOccurred = exception =>
-                    {
-                        _logger.LogInformation($"Reading exception occurred: {exception.Exception.Message}");
-                        return false; // return true if you want to ignore the error and continue processing.
-                    }
-                }))
-                {
-                    var records = csv.GetRecords<User>();
-
-                    foreach (var record in records)
-                    {
-                        // Validate each record manually
-                        var validationResults = new List<ValidationResult>();
-                        var validationContext = new ValidationContext(record);
-
-                        if (Validator.TryValidateObject(record, validationContext, validationResults, true))
-                        {
-                            validUsers.Add(record);
-                        }
-                        else
-                        {
-                            foreach (var error in validationResults)
-                            {
-                                _logger.LogWarning($"Validation error on row {csv.Context.Parser.Row}: {error.ErrorMessage}");
-                            }
-                        }
-                    }
-
-                    foreach (var user in validUsers)
-                    {
-                        Console.WriteLine(user.Firstname + "\t" + user.Surname + "\t" + user.Age + "\t" + user.Sex + "\t" + user.Mobile + "\t" + user.Active);
-                    }
-
-                    if (validUsers.Count > 0)
-                    {
-                        await _context.Users.AddRangeAsync(validUsers);
-                        await _context.SaveChangesAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("Failed to process CSV file: {Message}", ex.Message);
-            }
         }
 
         [HttpPost]
@@ -105,14 +40,13 @@ namespace CSVDataManager.Controllers
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", file.FileName);
 
-
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
 
-            // After saving the file, precess the CSV data
-            await ProcessCsvFile(path);
+            // After saving the file, process the CSV data
+            await _userService.ProcessCsvFileAsync(path);
 
             return RedirectToAction("Index");
         }
@@ -168,11 +102,9 @@ namespace CSVDataManager.Controllers
                 Active = model.Active
             };
 
-            _context.Add(user);
-            await _context.SaveChangesAsync();
+            await _userService.AddUserAsync(user);
             return RedirectToAction("Index");
         }
-
 
         // Display the form to edit a user (Update)
         public async Task<IActionResult> Edit(int? id)
@@ -182,7 +114,7 @@ namespace CSVDataManager.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _userService.GetUserByIdAsync(id.Value);
             if (user == null)
             {
                 return NotFound();
@@ -197,7 +129,7 @@ namespace CSVDataManager.Controllers
                 Sex = user.Sex,
                 Mobile = user.Mobile,
                 Active = user.Active,
-                SexOptions = GetSexOptions() // Make sure this method is available and properly populating the SelectList
+                SexOptions = GetSexOptions()
             };
 
             return View(model);
@@ -216,7 +148,7 @@ namespace CSVDataManager.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = await _context.Users.FindAsync(id);
+                var user = await _userService.GetUserByIdAsync(id);
                 if (user == null)
                 {
                     return NotFound();
@@ -231,12 +163,11 @@ namespace CSVDataManager.Controllers
 
                 try
                 {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
+                    await _userService.UpdateUserAsync(user);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!_userService.UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -260,7 +191,7 @@ namespace CSVDataManager.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _userService.GetUserByIdAsync(id.Value);
 
             if (user == null)
             {
@@ -275,15 +206,8 @@ namespace CSVDataManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+            await _userService.DeleteUserAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.Id == id);
         }
 
         private IEnumerable<SelectListItem> GetSexOptions()

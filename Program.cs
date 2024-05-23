@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CSVDataManager.Data;
+using CSVDataManager.Repositories;
+using CSVDataManager.Services;
 
 namespace CSVDataManager
 {
@@ -20,6 +22,9 @@ namespace CSVDataManager
                         maxRetryDelay: TimeSpan.FromSeconds(30), // Maximum delay between retries
                         errorNumbersToAdd: null); // SQL error numbers to consider for retries
                 }));
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 
