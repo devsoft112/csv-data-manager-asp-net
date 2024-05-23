@@ -1,6 +1,7 @@
 # CSV Data Manager
 
 CSV Data Manager is an ASP.NET Core MVC application that allows you to manage user data from CSV files. It supports CRUD operations (Create, Read, Update, Delete) and provides functionality to upload and process CSV files to populate the database.
+Watch the video in order to review how it works [here](https://www.loom.com/share/0fa7290a132343b38a1388d8d7f81382?sid=7f17dbfa-81d0-462e-8363-65a5ddc0d57d)
 
 ## Features
 

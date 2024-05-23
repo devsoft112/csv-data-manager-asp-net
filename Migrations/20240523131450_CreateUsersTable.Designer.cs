@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSVDataManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240523120409_CreateUsersTable")]
+    [Migration("20240523131450_CreateUsersTable")]
     partial class CreateUsersTable
     {
         /// <inheritdoc />
